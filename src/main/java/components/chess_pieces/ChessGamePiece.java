@@ -1,4 +1,4 @@
-package components.chessPieces;
+package components.chess_pieces;
 
 import utils.ChessGraveyard;
 import utils.ChessGameEngine;

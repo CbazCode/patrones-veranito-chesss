@@ -3,7 +3,7 @@ package components.board;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import components.chessPieces.ChessGamePiece;
+import components.chess_pieces.ChessGamePiece;
 
 // -------------------------------------------------------------------------
 /**

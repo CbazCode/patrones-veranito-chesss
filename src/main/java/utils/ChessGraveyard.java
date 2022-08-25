@@ -3,7 +3,7 @@ package utils;
 import java.awt.GridLayout;
 import javax.swing.*;
 
-import components.chessPieces.ChessGamePiece;
+import components.chess_pieces.ChessGamePiece;
 
 // -------------------------------------------------------------------------
 /**
