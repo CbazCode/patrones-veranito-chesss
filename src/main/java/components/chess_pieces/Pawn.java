@@ -69,6 +69,23 @@ public class Pawn
         return false;
     }
 
+    public void checkForNormalMoves (int count , int maxIter, int currRow,ChessGameBoard board, ArrayList<String> moves ) {
+        while (count <= maxIter) { // only loop while we have open slots and have not passed our
+            // limit
+            if (isOnScreen(currRow, pieceColumn)
+                    && board.getCell(currRow,
+                            pieceColumn).getPieceOnSquare() == null) {
+                moves.add(currRow + "," + pieceColumn);
+            } else {
+                break;
+            }
+            currRow = (getColorOfPiece() == ChessGamePiece.WHITE)
+                    ? (currRow - 1)
+                    : (currRow + 1);
+            count++;
+        }
+    }
+
     /**
      * Calculates the possible moves for this piece. These are ALL the possible
      * moves, including illegal (but at the same time valid) moves.
@@ -89,21 +106,10 @@ public class Pawn
                 : (pieceRow + 1);
         int count = 1;
         int maxIter = notMoved ? 2 : 1;
+        
         // check for normal moves
-        while (count <= maxIter) { // only loop while we have open slots and have not passed our
-            // limit
-            if (isOnScreen(currRow, pieceColumn)
-                    && board.getCell(currRow,
-                            pieceColumn).getPieceOnSquare() == null) {
-                moves.add(currRow + "," + pieceColumn);
-            } else {
-                break;
-            }
-            currRow = (getColorOfPiece() == ChessGamePiece.WHITE)
-                    ? (currRow - 1)
-                    : (currRow + 1);
-            count++;
-        }
+        checkForNormalMoves(count, maxIter, currRow, board, moves);
+
         // check for enemy capture points
         if (getColorOfPiece() == ChessGamePiece.WHITE) {
             if (isEnemy(board, pieceRow - 1, pieceColumn - 1)) {
