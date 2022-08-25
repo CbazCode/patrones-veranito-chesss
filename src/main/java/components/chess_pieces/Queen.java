@@ -1,4 +1,4 @@
-package components.chessPieces;
+package components.chess_pieces;
 
 import components.board.ChessGameBoard;
 
@@ -7,54 +7,41 @@ import java.util.ArrayList;
 
 // -------------------------------------------------------------------------
 /**
- * Represents a King game piece.
+ * Represents a Queen game piece.
  *
  * @author Ben Katz (bakatz)
  * @author Myles David II (davidmm2)
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
  */
-public class King
+public class Queen
         extends ChessGamePiece {
     // ----------------------------------------------------------
     /**
-     * Create a new King object.
+     * Create a new Queen object.
      *
      * @param board
-     *              the board to create the king on
+     *              the board the queen is on
      * @param row
-     *              the row to create the king on
+     *              the row location of the queen
      * @param col
-     *              the column to create the king on
+     *              the column location of the queen
      * @param color
      *              either GamePiece.WHITE, BLACK, or UNASSIGNED
      */
-    public King(ChessGameBoard board, int row, int col, int color) {
-        super(board, row, col, color, false);
+    public Queen(ChessGameBoard board, int row, int col, int color) {
+        super(board, row, col, color);
     }
 
     /**
-     * Calculates the possible moves for this piece. These are ALL the possible
-     * moves, including illegal (but at the same time valid) moves.
-     *
-     * @param board
-     *              the game board to calculate moves on
-     * @return ArrayList<> the moves
+     * Calculates the possible moves for this Queen.
+     * 
+     * @param board the board to check on
+     * @return ArrayList<> the list of moves
      */
     @Override
     protected ArrayList<String> calculatePossibleMoves(ChessGameBoard board) {
-        return generateMoves(board, 1);
-    }
-
-    /**
-     * Determines if this King is checked.
-     *
-     * @param board
-     *              the board to check on
-     * @return true if checked, false if not checked
-     */
-    public boolean isChecked(ChessGameBoard board) {
-        return !getCurrentAttackers(board).isEmpty();
+        return generateMoves(board, 8);
     }
 
     /**
@@ -66,11 +53,12 @@ public class King
     public ImageIcon createImageByPieceType() {
         return switch (getColorOfPiece()) {
             case ChessGamePiece.WHITE -> new ImageIcon(
-                    getClass().getResource("../../assets/WhiteKing.gif"));
+                    getClass().getResource("../../assets/WhiteQueen.gif"));
             case ChessGamePiece.BLACK -> new ImageIcon(
-                    getClass().getResource("../../assets/BlackKing.gif"));
+                    getClass().getResource("../../assets/BlackQueen.gif"));
             default -> new ImageIcon(
                     getClass().getResource("../../assets/default-Unassigned.gif"));
         };
     }
+
 }

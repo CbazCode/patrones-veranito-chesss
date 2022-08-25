@@ -1,13 +1,14 @@
 package components.board;
 
+import components.chess_pieces.Bishop;
+import components.chess_pieces.ChessGamePiece;
+import components.chess_pieces.King;
+import components.chess_pieces.Knight;
+import components.chess_pieces.Pawn;
+import components.chess_pieces.Queen;
+import components.chess_pieces.Rook;
 import components.panel.ChessPanel;
-import components.chessPieces.Bishop;
-import components.chessPieces.ChessGamePiece;
-import components.chessPieces.King;
-import components.chessPieces.Knight;
-import components.chessPieces.Pawn;
-import components.chessPieces.Queen;
-import components.chessPieces.Rook;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.MouseEvent;

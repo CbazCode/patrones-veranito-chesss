@@ -1,10 +1,10 @@
 package utils;
 
 import components.board.ChessGameBoard;
+import components.chess_pieces.ChessGamePiece;
+import components.chess_pieces.King;
 import components.panel.ChessPanel;
 import components.board.BoardSquare;
-import components.chessPieces.ChessGamePiece;
-import components.chessPieces.King;
 
 import java.util.List;
 import java.awt.Color;
